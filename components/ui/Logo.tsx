@@ -11,12 +11,8 @@ export default function Logo({ logo }: Props) {
         <Image src={logo} alt="Logo" width={45} height={45} />
       </div>
       <div className="flex flex-col">
-        <p className="font-bold text-black lg:text-white text-lg">
-          Company Name
-        </p>
-        <span className="text-sm text-black lg:text-white">
-          Company Tagline
-        </span>
+        <p className="font-bold text-white text-lg">Company Name</p>
+        <span className="text-sm text-white">Company Tagline</span>
       </div>
     </div>
   );

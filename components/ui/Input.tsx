@@ -3,10 +3,11 @@ import React, { useState } from "react";
 
 type Props = {
   type: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
 };
 
-export default function Input({ type, placeholder }: Props) {
+export default function Input({ type, placeholder, onChange }: Props) {
   const [show, setShow] = useState(false);
 
   const isPassword = type === "password";
@@ -17,7 +18,8 @@ export default function Input({ type, placeholder }: Props) {
         <input
           type={isPassword ? (show ? "text" : "password") : type}
           placeholder={placeholder}
-          className="w-full text-sm text-black focus:outline-none"
+          className="w-full text-base text-black focus:outline-none"
+          onChange={onChange}
         />
       </div>
 

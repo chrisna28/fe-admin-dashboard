@@ -1,18 +1,29 @@
-import Sidebar from "@/components/layout/Sidebar";
+"use client";
+
 import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import React, { useState } from "react";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="flex min-h-screen">
-      <Sidebar />
+  const [isOpenSideBar, setIsOpenSideBar] = useState(true);
+  const [isMobileOpenSideBar, setIsMobileOpenSideBar] = useState(false);
 
-      <div className="flex-1 flex flex-col">
-        <Header />
-        <main className="p-6 bg-gray-50 flex-1">{children}</main>
+  return (
+    <div className="flex flex-row min-h-screen bg-emerald-200">
+      <Sidebar isOpen={isOpenSideBar} isMobileOpen={isMobileOpenSideBar} />
+
+      <div className="flex flex-col w-full">
+        <Header
+          toggleSideBar={() => setIsOpenSideBar(!isOpenSideBar)}
+          mobileToggleSideBar={() =>
+            setIsMobileOpenSideBar(!isMobileOpenSideBar)
+          }
+        />
+        <main className="flex p-8">{children}</main>
       </div>
     </div>
   );

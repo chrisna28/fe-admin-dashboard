@@ -1,18 +1,34 @@
 import Image from "next/image";
 
-type Props = {
+interface Props {
   logo: string;
-};
+  color?: string;
+  width?: number;
+  height?: number;
+  name?: boolean;
+  tagline?: boolean;
+}
 
-export default function Logo({ logo }: Props) {
+export default function Logo({
+  logo,
+  color = "white",
+  width = 45,
+  height = 45,
+  name = true,
+  tagline = true,
+}: Props) {
   return (
-    <div className="flex flex-row items-center gap-3">
-      <div className="flex justify-center items-center">
-        <Image src={logo} alt="Logo" width={45} height={45} />
-      </div>
+    <div className="flex flex-row items-center">
+      <Image src={logo} alt="Logo" width={width} height={height} />
       <div className="flex flex-col">
-        <p className="font-bold text-white text-lg">Company Name</p>
-        <span className="text-sm text-white">Company Tagline</span>
+        {name && (
+          <span className={`text-lg font-semibold text-${color} pl-2`}>
+            Company Name
+          </span>
+        )}
+        {tagline && (
+          <span className={`text-sm text-${color} pl-2`}>Company Tagline</span>
+        )}
       </div>
     </div>
   );

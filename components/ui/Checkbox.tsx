@@ -1,7 +1,7 @@
-type Props = {
+interface Props {
   labelName: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
 export default function Checkbox({ labelName, onChange }: Props) {
   return (

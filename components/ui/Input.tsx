@@ -1,11 +1,11 @@
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/16/solid";
+import { EyeClosedIcon, EyeIcon } from "lucide-react";
 import React, { useState } from "react";
 
-type Props = {
+interface Props {
   type: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-};
+}
 
 export default function Input({ type, placeholder, onChange }: Props) {
   const [show, setShow] = useState(false);
@@ -29,7 +29,7 @@ export default function Input({ type, placeholder, onChange }: Props) {
             {show ? (
               <EyeIcon className="w-5 h-5 text-gray-500" />
             ) : (
-              <EyeSlashIcon className="w-5 h-5 text-gray-500" />
+              <EyeClosedIcon className="w-5 h-5 text-gray-500" />
             )}
           </button>
         </div>

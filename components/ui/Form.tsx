@@ -1,11 +1,11 @@
 import Input from "./Input";
 
-type Props = {
+interface Props {
   labelName: string;
   type: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
-};
+}
 
 export default function Form({
   labelName,

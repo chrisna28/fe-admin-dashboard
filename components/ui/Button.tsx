@@ -1,9 +1,9 @@
-type Props = {
+interface Props {
   labelButton: string;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   variant?: "blue" | "gray" | "red";
-};
+}
 
 export default function Button({
   labelButton,

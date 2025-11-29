@@ -1,26 +1,29 @@
-import { ChevronsLeftIcon, MenuIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
+import React from "react";
+
+type HeaderProps = { onToggleDesktop: () => void; onToggleMobile: () => void };
 
 export default function Header({
-  onToggleSidebarMobile,
-  onToggleSidebarCollapse,
-}: {
-  onToggleSidebarMobile: () => void;
-  onToggleSidebarCollapse: () => void;
-}) {
+  onToggleDesktop,
+  onToggleMobile,
+}: HeaderProps) {
   return (
-    <header className="sticky top-0 z-30 bg-white shadow px-4 py-3 flex justify-between items-center">
-      {/* Tombol untuk mobile */}
-      <button className="lg:hidden" onClick={onToggleSidebarMobile}>
-        <MenuIcon className="w-6 h-6" />
+    <header className="flex sticky top-0 bg-white border-2 border-red-500 h-16 px-4 items-center">
+      <button
+        type="button"
+        className="hidden lg:block p-2 rounded hover:bg-gray-200"
+        onClick={() => onToggleDesktop()}
+      >
+        <MenuIcon size={20} />
       </button>
 
-      <button className="hidden lg:block" onClick={onToggleSidebarCollapse}>
-        <ChevronsLeftIcon className="w-5 h-5" />
+      <button
+        type="button"
+        className="block lg:hidden p-2 rounded hover:bg-gray-200"
+        onClick={() => onToggleMobile()}
+      >
+        <MenuIcon size={20} />
       </button>
-
-      <span className="font-semibold">Dashboard</span>
-
-      {/* Tombol collapse untuk desktop */}
     </header>
   );
 }

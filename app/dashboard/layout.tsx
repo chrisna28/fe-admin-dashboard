@@ -30,30 +30,20 @@ export default function DashboardLayout({
   }, []);
 
   return (
-    <div
-      className={`flex flex-row min-h-screen bg-gray-100 ${
-        isDesktop ? "p-3 gap-2" : ""
-      }`}
-    >
+    <div className={`flex flex-row min-h-screen bg-[#FAF7F3]`}>
       <Sidebar
         isMenuCollapse={isCollapsed}
         isDesktopSize={isDesktop}
         isMobileSize={isMobile}
       />
 
-      <div className={`flex flex-col w-full ${isDesktop ? "gap-2" : ""} `}>
+      <div className={`flex flex-col w-full`}>
         <Header
           onToggleDesktop={() => setIsCollapsed((prev) => !prev)}
           onToggleMobile={() => setIsMobile(true)}
           isDesktopSize={isDesktop}
         />
-        <main
-          className={`flex w-full h-full bg-[#E3FDFD] ${
-            isDesktop ? "rounded-2xl" : ""
-          }`}
-        >
-          {children}
-        </main>
+        <main className={`flex w-full h-full`}>{children}</main>
       </div>
 
       {!isDesktop && isMobile && (
